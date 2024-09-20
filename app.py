@@ -18,8 +18,7 @@ with st.sidebar:
 
 generic_url=st.text_input("URL",label_visibility="collapsed")
 
-## Gemma Model USsing Groq API
-llm =ChatGroq(model="Gemma-7b-It", groq_api_key=groq_api_key)
+
 
 prompt_template="""
 Provide a summary of the following content in 300 words:
@@ -36,6 +35,8 @@ if st.button("Summarize the Content from YT or Website"):
         st.error("Please enter a valid Url. It can may be a YT video utl or website url")
 
     else:
+        ## Gemma Model USsing Groq API
+        llm =ChatGroq(model="Gemma-7b-It", groq_api_key=groq_api_key)
         try:
             with st.spinner("Waiting..."):
                 ## loading the website or yt video data
